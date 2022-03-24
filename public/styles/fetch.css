@@ -1,0 +1,42 @@
+.content .content__button-container {
+    display: flex;
+    width: 100%;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.content__button-container .content__add_button {
+    display: block;
+    width: 100px;
+    height: 50px;
+    background-color: #3BA6DB;
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.content__button-container .content__preloader {
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+
+.content__button-container .content__add_button:hover {
+    background-color: #2B96CB;
+}
+
+.content .content__img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content__img-container .content__img {
+    max-width: 300px;
+    margin: 5px;
+    box-shadow: 5px 5px 5px gray;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" content="Список дел">
+    <meta name="Author" content="Сабитов Искандэр">
+    <meta name="Keywords" content="Проекты, контакты">
+
+    <link rel="stylesheet" href="styles/outlines.css">
+    <link rel="stylesheet" href="styles/todo.css">
+    <title>Список дел</title>
+</head>
+
+<body>
+<header class="header-info">
+    <div class="header-info__logo-quote">
+        <div class="header-info__logo"> </div>
+        <div class="header-info__quote quote">
+            <blockquote class="header-info__quote-text">Мужчина не должен никому ничего объяснять. Мужчина либо уже все сказал, либо</blockquote>
+        </div>
+    </div>
+    <div class="menu">
+        <nav class="header-info__menu" onclick="showSubMenu(this)">
+            Menu &equiv;
+            <div class="menu__submenu">
+                <ul class="menu__menu-item-main"><a href="index.html" class="menu__menu-item_text">Главная</a></ul>
+                <ul class="menu__menu-item-content"><a href="fetch.html" class="menu__menu-item_text">Fetch</a></ul>
+                <ul class="menu__menu-item-TodoList"><a href="TodoList.html" class="menu__menu-item_text">Список дел</a></ul>
+                <ul class="menu__menu-item-Memes"><a href="memes.html" class="menu__menu-item_text">Мемы с волками</a></ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <main class="content">
+        <section class="todo-list">
+            <div class="todo-list__form">
+                <form onsubmit="addTaskItem();return false;" class="todo-list__form">
+                    <input id="textArea" type="text" placeholder="Input your task" class="todo-list__input-text">
+                    <button type="submit" class="todo-list__button">Добавить</button>
+                </form>
+            </div>
+            <div class="todo-list__task-list">
+                <ul id="todo-list__task-list">
+
+                </ul>
+            </div>
+                    <template id="todo-list__task-item">
+                        <li>
+                            <button onclick="removeTaskItem(this)">-</button>
+                            <span></span>
+                        </li>
+                    </template>
+        </section>
+    </main>
+</main>
+
+
+<div class="contacts-block">
+    <h2 class="contacts-block__contacts-title"><strong>Контакты: </strong></h2>
+    <nav class="contacts-block__contacts">
+        <a href="https://t.me/chasal_sheku" target="_blank" class="contacts-block__contacts-item">Телеграм</a>
+        <a href="https://vk.com/zachem1ti1chitaesh1eto" target="_blank" class="contacts-block__contacts-item">Вконтакте</a>
+        <a href="https://instagram.com/chasal_sheku" target="_blank" class="contacts-block__contacts-item">Инстаграм</a>
+    </nav>
+</div>
+
+<footer class="footer-info">
+    <section class="footer-info__add">
+        <h1>
+            Page load time in JavaScript
+        </h1>
+        <h3 id='page-load-time'>Page load time is</h3>
+    </section>
+</footer>
+
+
+<script src="script.js" defer></script>
+<script src="todo.js" defer></script>
+</body>
+</html>

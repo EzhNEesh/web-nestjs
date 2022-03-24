@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" content="Мемы с волками">
+    <meta name="Author" content="Сабитов Искандэр">
+    <meta name="Keywords" content="Проекты, контакты">
+
+    <link rel="stylesheet" href="styles/outlines.css">
+    <link rel="stylesheet" href="styles/memes.css">
+
+    <title>Мемы с волками</title>
+</head>
+
+<body>
+<header class="header-info">
+    <div class="header-info__logo-quote">
+        <div class="header-info__logo"> </div>
+        <div class="header-info__quote quote">
+            <blockquote class="header-info__quote-text">Мужчина не должен никому ничего объяснять. Мужчина либо уже все сказал, либо</blockquote>
+        </div>
+    </div>
+    <div class="menu">
+        <nav class="header-info__menu" onclick="showSubMenu(this)">
+            Menu &equiv;
+            <div class="menu__submenu">
+                <ul class="menu__menu-item-main"><a href="index.html" class="menu__menu-item_text">Главная</a></ul>
+                <ul class="menu__menu-item-content"><a href="fetch.html" class="menu__menu-item_text">Fetch</a></ul>
+                <ul class="menu__menu-item-TodoList"><a href="TodoList.html" class="menu__menu-item_text">Список дел</a></ul>
+                <ul class="menu__menu-item-Memes"><a href="memes.html" class="menu__menu-item_text">Мемы с волками</a></ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+    <section class="content__memes">
+        <div class="content__meme-item"><img src="images/meme0.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme11.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme2.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme3.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme4.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme5.jpg" class="content__meme-item_img-style" alt=""></div>
+        <div class="content__meme-item"><img src="images/meme6.jpg" class="content__meme-item_img-style" alt=""></div>
+    </section>
+</main>
+
+<div class="contacts-block">
+    <h2 class="contacts-block__contacts-title"><strong>Контакты: </strong></h2>
+    <nav class="contacts-block__contacts">
+        <a href="https://t.me/chasal_sheku" target="_blank" class="contacts-block__contacts-item">Телеграм</a>
+        <a href="https://vk.com/zachem1ti1chitaesh1eto" target="_blank" class="contacts-block__contacts-item">Вконтакте</a>
+        <a href="https://instagram.com/chasal_sheku" target="_blank" class="contacts-block__contacts-item">Инстаграм</a>
+    </nav>
+</div>
+
+<footer class="footer-info">
+    <section class="footer-info__add">
+        <h1>
+            Page load time in JavaScript
+        </h1>
+        <h3 id='page-load-time'>Page load time is</h3>
+    </section>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js" defer></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="memes.js" defer></script>
+</body>
+</html>

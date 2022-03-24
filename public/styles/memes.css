@@ -1,0 +1,84 @@
+.content .content__memes {
+    min-width: 0;
+    min-height: 300px;
+    width: 100%;
+    background-color: #ABDCF5;
+    position: relative;
+}
+
+.content__memes .content__meme-item {
+    margin: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content__meme-item .content__meme-item_img-style {
+    box-shadow: 10px 10px 10px gray;
+    max-width: 100%;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    background-color: #BBECF5;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px gray;
+    width: 30px;
+    height: 30px;
+    z-index: 1000;
+}
+
+.slick-prev {
+    left: 5px;
+}
+
+.slick-next {
+    right: 5px;
+}
+
+.slider__item {
+    text-align: center;
+    opacity: 0.5;
+
+}
+
+.slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-dots li {
+    list-style: none;
+    margin: 7px;
+}
+
+.slick-dots button{
+    font-size: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    background-color: white;
+    border: none;
+}
+
+.slick-dots button:hover{
+    outline: 1px solid #3BA6DB;
+    cursor: pointer;
+}
+
+.slick-active button{
+    background-color: #3BA6DB;
+}
