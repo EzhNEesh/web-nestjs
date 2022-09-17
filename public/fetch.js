@@ -1,5 +1,5 @@
 async function loadPhoto() {
-    addPreloader()
+  addPreloader();
     let randomID = Math.floor(Math.random() * 5000) + 1
     try {
         let res = await fetch('https://jsonplaceholder.typicode.com/photos/' + randomID)

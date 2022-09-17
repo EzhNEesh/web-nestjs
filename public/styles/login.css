@@ -1,0 +1,49 @@
+@font-face {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Georgia"), url("/fonts/georgia.ttf") format("ttf");
+}
+
+@media screen and (max-width: 700px){
+    footer {display: none; }
+    aside {display: none; }
+}
+
+@media screen and (max-width: 330px){
+    blockquote {display: none; }
+}
+
+body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #3BA6DB;
+}
+
+.login-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.4rem;
+}
+
+.login-block .login-block-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-block-items .login-block-item {
+    display: flex;
+}
+
+.login-block .register-item {
+    color: #2B4C5C;
+}
