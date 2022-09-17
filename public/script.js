@@ -27,5 +27,5 @@ function showSubMenu (menu) {
 
 window.onload = function () {
     let loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;
-    document.getElementById('page-load-time').textContent += ' ' + loadTime / 1000 + ' Seconds'
+    document.getElementById('page-load-time').textContent += ' ' + loadTime + ' ms (Client)'
 }

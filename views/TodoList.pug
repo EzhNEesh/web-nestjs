@@ -1,0 +1,26 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='Description' content='Список дел')
+    meta(name='Author' content='Сабитов Искандэр')
+    meta(name='Keywords' content='Проекты, контакты')
+    link(rel='stylesheet' href='styles/outlines.css')
+    link(rel='stylesheet' href='styles/todo.css')
+    title Список дел
+include partials/header.pug
+main
+    main.content
+        section.todo-list
+            .todo-list__form
+                form.todo-list__form(onsubmit='addTaskItem();return false;')
+                    input#textArea.todo-list__input-text(type='text' placeholder='Input your task')
+                    button.todo-list__button(type='submit') Добавить
+            .todo-list__task-list
+                ul#todo-list__task-list
+            template#todo-list__task-item
+                li
+                    button(onclick='removeTaskItem(this)') -
+                    span
+include partials/contacts.pug
+include partials/footer.pug
+script(src='todo.js' defer='')

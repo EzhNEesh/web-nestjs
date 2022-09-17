@@ -1,0 +1,23 @@
+doctype html
+head
+    append style
+        link(rel='stylesheet' href='/styles/login.css')
+body
+    main.login-block
+        form.login-block-items
+            section.login-block-item
+                h1 Авторизуйтесь для продолжения
+            section.login-block-item
+                label Email
+                input(type='email' name='email' placeholder='Email')
+            section.login-block-item
+                label  Username
+                input(type='user' name='username' placeholder='Username')
+            section.login-block-item
+                label Password
+                input(type='password' name='password' placeholder='Password' required='')
+            section.login-block-item
+                button(onclick='login()') Войти
+            span.login-block-register-item
+                | Ещё не зарегистрированы?
+                a(href='/register') Зарегистрироваться

@@ -1,0 +1,20 @@
+script(src='script.js' defer='')
+header.header-info
+    .header-info__logo-quote
+        img.header-info__logo(src='images/logo.png' alt='')
+        .header-info__quote.quote
+            blockquote.header-info__quote-text Мужчина не должен никому ничего объяснять. Мужчина либо уже все сказал, либо
+    .menu
+        nav.header-info__menu(onclick='showSubMenu(this)')
+            | Menu &equiv;
+            .menu__submenu
+                ul.menu__menu-item-main
+                    a.menu__menu-item_text(href='index.html') Главная
+                ul.menu__menu-item-content
+                    a.menu__menu-item_text(href='fetch.html') Fetch
+                ul.menu__menu-item-TodoList
+                    a.menu__menu-item_text(href='TodoList.html') Список дел
+                ul.menu__menu-item-Memes
+                    a.menu__menu-item_text(href='memes.html') Мемы с волками
+                ul.menu__menu-item-logout
+                    a.menu__menu-item_text Выход

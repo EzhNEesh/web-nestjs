@@ -2,8 +2,7 @@
     font-family: Georgia;
     font-style: normal;
     font-weight: 400;
-    src: local("Georgia"),
-    url("/fonts/georgia.ttf") format("ttf");
+    src: url("/fonts/georgia.ttf") format("ttf");
 }
 
 @media screen and (max-width: 700px){
@@ -17,7 +16,6 @@
 
 
 body {
-    /*background-image: url("/images/background.png");*/
     background-color: #3BA6DB;
 }
 
@@ -36,7 +34,6 @@ body {
 }
 
 .header-info .header-info__logo {
-    background-color: #2B4C5C;
     min-width: 110px;
     width: 110px;
     height: 104px;
@@ -111,6 +108,13 @@ body {
 }
 
 .menu__submenu .menu__menu-item-Memes {
+    font-size: 80%;
+    padding-inline-start: 0;
+    margin-block-start: 0.5em;
+    margin-block-end: 0;
+}
+
+.menu__submenu .menu__menu-item-logout {
     font-size: 80%;
     padding-inline-start: 0;
     margin-block-start: 0.5em;

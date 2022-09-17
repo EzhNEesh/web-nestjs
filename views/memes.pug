@@ -1,0 +1,32 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='Description' content='Мемы с волками')
+    meta(name='Author' content='Сабитов Искандэр')
+    meta(name='Keywords' content='Проекты, контакты')
+    link(rel='stylesheet' href='styles/outlines.css')
+    link(rel='stylesheet' href='styles/memes.css')
+    title Мемы с волками
+include partials/header
+main.content
+    section.content__memes
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme0.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme11.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme2.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme3.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme4.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme5.jpg' alt='')
+        .content__meme-item
+            img.content__meme-item_img-style(src='images/meme6.jpg' alt='')
+include partials/contacts.pug
+include partials/footer.pug
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+script(src='script.js' defer='')
+script(type='text/javascript' src='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+script(src='memes.js' defer='')
