@@ -1,13 +1,12 @@
 doctype html
 head
-    meta(charset='UTF-8')
-    meta(name='Description' content='Мемы с волками')
-    meta(name='Author' content='Сабитов Искандэр')
-    meta(name='Keywords' content='Проекты, контакты')
     link(rel='stylesheet' href='styles/outlines.css')
     link(rel='stylesheet' href='styles/memes.css')
-    title Мемы с волками
 include partials/header
+
+body
+include partials/welcome-wolf.pug
++welcome-wolf('На этой странице сасамые первые Волки прародители. Склоните морды в честь уважения к старшим')
 main.content
     section.content__memes
         .content__meme-item

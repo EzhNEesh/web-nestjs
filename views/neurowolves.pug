@@ -1,0 +1,14 @@
+doctype html
+html(lang='ru')
+head
+    append style
+        link(rel='stylesheet' href='/styles/outlines.css')
+include partials/header.pug
+
+body
+    include partials/welcome-wolf.pug
+    +welcome-wolf('На этой странице представлены ВОЛКИ, созданные не волками. Нейроволки созданы суперумной магией нейросети. НейроВОЛКИ')
+    main.content
+        include partials/image_container.pug
+include partials/contacts.pug
+include partials/footer.pug

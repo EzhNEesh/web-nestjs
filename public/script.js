@@ -27,5 +27,17 @@ function showSubMenu (menu) {
 
 window.onload = function () {
     let loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;
-    document.getElementById('page-load-time').textContent += ' ' + loadTime + ' ms (Client)'
+    document.getElementById('page-load-time').textContent += ' ' + loadTime + ' ms (Client)';
+    let loc = window.location.href.split('/').pop();
+    if(!['login.html', 'register.html', 'memes.pug'].includes(loc)) {
+        if(loc === 'neurowolves.html'){
+            getWolves(0, 'neuro');
+        }
+        else if(loc === 'myWolves.html'){
+            getWolves(4, 'common');
+        }
+        else{
+            getWolves(0, 'common');
+        }
+    }
 }

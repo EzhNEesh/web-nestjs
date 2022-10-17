@@ -26,17 +26,10 @@ export class AppController {
     return { time: this.appService.getServerLoadTime() };
   }
 
-  @Get('/fetch.html')
-  @Render('fetch.pug')
+  @Get('/neurowolves.html')
+  @Render('neurowolves.pug')
   @UseInterceptors(LoggingInterceptor)
-  getFetch() {
-    return { time: this.appService.getServerLoadTime() };
-  }
-
-  @Get('/TodoList.html')
-  @Render('TodoList.pug')
-  @UseInterceptors(LoggingInterceptor)
-  getTodo() {
+  getNeuro() {
     return { time: this.appService.getServerLoadTime() };
   }
 
@@ -44,6 +37,13 @@ export class AppController {
   @Render('memes.pug')
   @UseInterceptors(LoggingInterceptor)
   getMemes() {
+    return { time: this.appService.getServerLoadTime() };
+  }
+
+  @Get('/myWolves.html')
+  @Render('myWolves.pug')
+  @UseInterceptors(LoggingInterceptor)
+  getMyWolves() {
     return { time: this.appService.getServerLoadTime() };
   }
 

@@ -4,13 +4,18 @@
     height: 90px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding: 10px;
+}
+
+.content__button-container .content__image_input {
 }
 
 .content__button-container .content__add_button {
     display: block;
     width: 100px;
     height: 50px;
+    margin: 0px 0px 7px 0px;
     background-color: #3BA6DB;
     color: antiquewhite;
     border: none;

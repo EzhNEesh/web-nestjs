@@ -1,0 +1,23 @@
+doctype html
+html(lang='ru')
+head
+    append style
+        link(rel='stylesheet' href='/styles/outlines.css')
+        link(rel='stylesheet' href='/styles/myWolves.css')
+include partials/header.pug
+
+body
+    include partials/welcome-wolf.pug
+    +welcome-wolf('На этой странице представлены твои ВОЛКИ')
+    main.content
+        section.content-item
+            section.content__button-container
+                button.content__add_button(onclick='downloadImage()' type='button') Добавить волка
+                select(name='wolfSelect' size='1')
+                    option(value='common' selected='selected') Обычный
+                    option(value='neuro') Нейроволк
+                input.content__image_input(id='file' type='file' accept='image/*')
+        include partials/image_container.pug
+include partials/contacts.pug
+include partials/footer.pug
+script(src='postmanager.js' defer='')
