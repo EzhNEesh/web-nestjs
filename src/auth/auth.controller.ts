@@ -1,7 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, HttpStatus } from "@nestjs/common";
+import {
+  Controller,
+  Post,
+  Body,
+  UseFilters,
+  HttpStatus,
+} from "@nestjs/common";
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { CreateUserDto } from "../users/dto/create-user.dto";
 import { HttpExceptionFilter} from "../exceptions_filter/http-exception.filter";
@@ -30,8 +35,8 @@ export class AuthController {
   @UseFilters(new HttpExceptionFilter())
   @ApiOperation({summary: 'login'})
   @Post('login')
-  async login(@Body() createUserDto: CreateUserDto) {
-    return await this.authService.login(createUserDto)
+  async login(@Body() createAuthDto:CreateAuthDto) {
+    return await this.authService.login(createAuthDto)
   }
 
   @ApiResponse({

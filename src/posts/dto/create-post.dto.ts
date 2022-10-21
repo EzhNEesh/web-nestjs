@@ -6,11 +6,6 @@ export class CreatePostDto {
   @ApiProperty()
   imageURL: string;
 
-  @IsNumber()
-  @IsNotEmpty()
-  @ApiProperty()
-  authorId: number;
-
   @IsNotEmpty()
   @ApiProperty()
   wolfType: string;

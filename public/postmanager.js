@@ -13,7 +13,7 @@ async function downloadImage() {
   let allowed = ['png', 'jpeg', 'jpg'];
   let img = document.querySelector('input');
   let wolfType = document.querySelector('select').value;
-  if (!img.files[0] || allowed.includes(img.value.split('.').pop())) {
+  if (!img.files[0] || !allowed.includes(img.value.split('.').pop())) {
     alert('Изображение не выбрано или формат не поддерживается приложением')
     return;
   }
@@ -24,7 +24,6 @@ async function downloadImage() {
       '/posts',
       {
         imageURL: reader.result,
-        authorId: 4,
         wolfType: wolfType,
       },
       'POST',
@@ -40,11 +39,11 @@ async function downloadImage() {
 
 async function getWolves(...data) {
   let url;
-  if(data[0] === 0){
-    url = '/posts/' + data[1];
+  if(data.length){
+    url = '/posts/' + data[0];
   }
   else{
-    url = '/posts/user/' + data[0];
+    url = '/posts/user/posts';
   }
   let res = await fetch(url);
   if (res.ok) {
@@ -56,6 +55,7 @@ async function getWolves(...data) {
   else {
     alert('Error status: ' + res.status)
   }
+
 }
 
 function showWolf(wolfUrl) {

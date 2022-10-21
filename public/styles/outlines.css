@@ -86,42 +86,7 @@ body {
     margin: 0;
 }
 
-.menu__submenu .menu__menu-item-main {
-    font-size: 80%;
-    padding-inline-start: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0;
-}
-
-.menu__submenu .menu__menu-item-content {
-    font-size: 80%;
-    padding-inline-start: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0;
-}
-
-.menu__submenu .menu__menu-item-TodoList {
-    font-size: 80%;
-    padding-inline-start: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0;
-}
-
-.menu__submenu .menu__menu-item-Memes {
-    font-size: 80%;
-    padding-inline-start: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0;
-}
-
-.menu__submenu .menu__menu-item-myWolves {
-    font-size: 80%;
-    padding-inline-start: 0;
-    margin-block-start: 0.5em;
-    margin-block-end: 0;
-}
-
-.menu__submenu .menu__menu-item-logout {
+.menu__submenu .menu__menu-item {
     font-size: 80%;
     padding-inline-start: 0;
     margin-block-start: 0.5em;

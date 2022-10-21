@@ -4,7 +4,7 @@ head
         link(rel='stylesheet' href='/styles/login.css')
 body
     main.login-block
-        form.login-block-items
+        section.login-block-items
             section.login-block-item
                 h1 Регистрация
             section.login-block-item
@@ -20,6 +20,6 @@ body
                 button(onclick='register()') Зарегистрироваться
             span.login-block-register-item
                 | Уже зарегистрированы?
-                a(href='/login') Авторизуйтесь
+                a(href='/login.html') Авторизуйтесь
 
 script(src='login.js' defer='')

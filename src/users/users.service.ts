@@ -11,12 +11,12 @@ export class UsersService {
   create(createUserDto: CreateUserDto) {
     return this.prismaService.user.create({ data: createUserDto });
   }
-
+/*
   findAll() {
     return this.prismaService.user.findMany();
   }
-
-  findOneById(id: number) {
+*/
+  async findOneById(id: number) {
     return this.prismaService.user.findUnique({where: {id}});
   }
 

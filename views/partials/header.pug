@@ -1,4 +1,5 @@
 script(src='script.js' defer='')
+
 header.header-info
     .header-info__logo-quote
         img.header-info__logo(src='images/logo.png' alt='')
@@ -7,14 +8,10 @@ header.header-info
     .menu
         nav.header-info__menu(onclick='showSubMenu(this)')
             | Menu &equiv;
-            .menu__submenu
-                ul.menu__menu-item-main
-                    a.menu__menu-item_text(href='index.html') Волки
-                ul.menu__menu-item-content
-                    a.menu__menu-item_text(href='neurowolves.html') Нейроволки
-                ul.menu__menu-item-Memes
-                    a.menu__menu-item_text(href='memes.html') Самые первые волки
-                ul.menu__menu-item-myWolves
-                    a.menu__menu-item_text(href='myWolves.html') Мои волки
-                ul.menu__menu-item-logout
-                    a.menu__menu-item_text Выход
+            section#menu-container.menu__submenu
+template#menu-container-item
+    ul.menu__menu-item
+        a.menu__menu-item_text
+script(src='logout.js' defer='')
+script(src='login.js' defer='')
+script(src='header.js' defer='')

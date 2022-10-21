@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common"
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService} from "../prisma/prisma.service";
 import { Prisma } from '@prisma/client';
+import { HttpExceptionFilter } from "../exceptions_filter/http-exception.filter";
 
 @Injectable()
 export class PostsService {
@@ -26,16 +27,16 @@ export class PostsService {
     return this.prismaService.post.findUnique({ where: { id } });
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return this.prismaService.post.update({
-      where: { id: id },
-      data: {
-        authorId: updatePostDto['authorId'],
-        imageURL: updatePostDto['imageURL'],
-      } })
-  }
-
-  remove(id: number) {
-    return this.prismaService.post.delete({ where: { id }});
+  async remove(userId: number, id: number) {
+    const post = await this.prismaService.post.findUnique({ where: { id } });
+    try {
+      if (post.authorId === userId) {
+        return this.prismaService.post.delete({ where: { id } });
+      }
+      throw new Error('permission error');
+    }
+    catch(e){
+      return e;
+    }
   }
 }

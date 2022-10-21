@@ -1,12 +1,3 @@
-(function () {
-    let arrayHref = document.getElementsByClassName('menu__menu-item_text')
-    for (let i = 0; i < arrayHref.length; i++) {
-        if (document.location.href === arrayHref[i].href) {
-            arrayHref[i].classList.add('menu__menu-item_text_is-located')
-        }
-    }
-})()
-
 function showSubMenu (menu) {
     let submenu = menu.children[0]
     if (submenu.style.display === 'block') {
@@ -31,13 +22,18 @@ window.onload = function () {
     let loc = window.location.href.split('/').pop();
     if(!['login.html', 'register.html', 'memes.pug'].includes(loc)) {
         if(loc === 'neurowolves.html'){
-            getWolves(0, 'neuro');
+            getWolves('neuro');
         }
         else if(loc === 'myWolves.html'){
-            getWolves(4, 'common');
+            getWolves(); // getCookieValue('userId')
         }
         else{
-            getWolves(0, 'common');
+            getWolves('common');
         }
+        createHeader();
     }
+}
+
+function getCookieValue(name) {
+    return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
 }

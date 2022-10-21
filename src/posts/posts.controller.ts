@@ -8,18 +8,23 @@ import {
   Delete,
   ParseIntPipe,
   HttpStatus,
-  UseFilters
+  UseFilters,
+  UseGuards,
+  Req
 } from "@nestjs/common";
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { HttpExceptionFilter } from "../exceptions_filter/http-exception.filter";
+import { JwtAuthGuard } from "../auth/jwt-auth.guard";
+import { Request} from "express";
+import { AuthService } from "../auth/auth.service";
 
 @ApiTags('posts')
 @Controller('posts')
 export class PostsController {
-  constructor(private readonly postsService: PostsService) {}
+  constructor(private readonly postsService: PostsService, private readonly authService: AuthService) {}
 
   @ApiResponse({
     status: 201,
@@ -34,10 +39,14 @@ export class PostsController {
     description: 'Internal unknown error',
   })
   @UseFilters(new HttpExceptionFilter())
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOperation({summary: 'Create post'})
   @Post()
-  create(@Body() createPostDto: CreatePostDto) {
-    return this.postsService.create(createPostDto);
+  create(@Req() req: Request, @Body() createPostDto: CreatePostDto) {
+    const authorId = this.authService.getUserId(req.cookies.token);
+    const data = { imageURL: createPostDto.imageURL, authorId: authorId, wolfType: createPostDto.wolfType }
+    return this.postsService.create(data);
   }
 
   @ApiResponse({
@@ -85,11 +94,13 @@ export class PostsController {
   })
   @UseFilters(new HttpExceptionFilter())
   @ApiOperation({summary: 'Get all posts'})
-  @Get('/user/:userId')
-  async findAllUsersWolves(@Param('userId', ParseIntPipe) userId: number) {
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Get('user/posts')
+  async findAllUsersWolves(@Req() req: Request) {
     return await this.postsService.findAll({
       where: {
-        authorId: userId,
+        authorId: this.authService.getUserId(req.cookies.token),
       }
     });
   }
@@ -117,33 +128,6 @@ export class PostsController {
     return await this.postsService.findOne(id);
   }
 
-  @ApiResponse({
-    status: 201,
-    description: 'Post updated',
-  })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: 'Bad request',
-  })
-  @ApiResponse({
-    status: HttpStatus.NOT_FOUND,
-    description: 'Post not found',
-  })
-  @ApiResponse({
-    status: HttpStatus.FORBIDDEN,
-    description: 'You can not change this post',
-  })
-  @ApiResponse({
-    status: HttpStatus.INTERNAL_SERVER_ERROR,
-    description: 'Internal unknown error',
-  })
-  @ApiOperation({summary: 'Update post by id'})
-  @Patch(':id')
-  async update(@Param('id', ParseIntPipe) id: number,
-               @Body() updatePostDto: UpdatePostDto) {
-    return await this.postsService.update(id, updatePostDto);
-  }
-
   @UseFilters(new HttpExceptionFilter())
   @ApiResponse({
     status: 201,
@@ -166,9 +150,12 @@ export class PostsController {
     description: 'Internal unknown error',
   })
   @UseFilters(new HttpExceptionFilter())
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOperation({summary: 'Delete post by id'})
   @Delete(':id')
-  async remove(@Param('id', ParseIntPipe) id: number) {
-    return await this.postsService.remove(id);
+  async remove(@Req() req: Request, @Param('id', ParseIntPipe) id: number) {
+    const userId = this.authService.getUserId(req.cookies.token);
+    return await this.postsService.remove(userId, id);
   }
 }
