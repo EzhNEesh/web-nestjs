@@ -1,4 +1,4 @@
-const socket = io('http://'+document.location.host)
+const socket = io()
 
 socket.on('postCreated', (newPost) => {
   showWolf(newPost['imageURL'])
