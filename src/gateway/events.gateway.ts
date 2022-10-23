@@ -42,6 +42,5 @@ export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
   handleConnection(client: Socket, ...args: any[]) {
     console.log(`Connected ${client.id}`);
-    //Выполняем действия
   }
 }
