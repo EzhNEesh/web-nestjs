@@ -6,4 +6,8 @@ export class AppService {
   getServerLoadTime(){
     return serverLoadTime;
   }
+
+  createMessage(data: string){
+
+  }
 }

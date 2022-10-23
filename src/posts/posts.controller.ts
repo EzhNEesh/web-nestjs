@@ -20,11 +20,16 @@ import { HttpExceptionFilter } from "../exceptions_filter/http-exception.filter"
 import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 import { Request} from "express";
 import { AuthService } from "../auth/auth.service";
+import { EventsGateway} from "../gateway/events.gateway";
 
 @ApiTags('posts')
 @Controller('posts')
 export class PostsController {
-  constructor(private readonly postsService: PostsService, private readonly authService: AuthService) {}
+  constructor(
+    private readonly postsService: PostsService,
+    private readonly authService: AuthService,
+    private eventsGateway: EventsGateway,
+    ) {}
 
   @ApiResponse({
     status: 201,
@@ -43,10 +48,12 @@ export class PostsController {
   @ApiBearerAuth()
   @ApiOperation({summary: 'Create post'})
   @Post()
-  create(@Req() req: Request, @Body() createPostDto: CreatePostDto) {
+  async create(@Req() req: Request, @Body() createPostDto: CreatePostDto) {
     const authorId = this.authService.getUserId(req.cookies.token);
     const data = { imageURL: createPostDto.imageURL, authorId: authorId, wolfType: createPostDto.wolfType }
-    return this.postsService.create(data);
+    const newPost = await this.postsService.create(data);
+    await this.eventsGateway.broadcast(newPost);
+    return newPost;
   }
 
   @ApiResponse({

@@ -7,6 +7,7 @@ function createHeader(){
   }
   createHeaderItem('Волки', 'index.html');
   createHeaderItem('Нейроволки', 'neurowolves.html');
+  createHeaderItem('Первые волки', 'memes.html');
   if(getCookieValue('token')){
     createHeaderItem('Выйти', 'logout');
     addEventListenerLogout();

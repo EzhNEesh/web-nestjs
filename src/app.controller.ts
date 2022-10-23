@@ -43,6 +43,7 @@ export class AppController {
   @Render('neurowolves.pug')
   @UseInterceptors(LoggingInterceptor)
   getNeuro() {
+
     return { time: this.appService.getServerLoadTime() };
   }
 

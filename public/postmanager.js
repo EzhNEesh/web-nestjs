@@ -28,11 +28,11 @@ async function downloadImage() {
       },
       'POST',
     );
-    if (res.ok){
-      showWolf(reader.result);
+    if (!res.ok){
+      alert('Error status: ' + res.status);
     }
     else{
-      alert('Error status: ' + res.status);
+      //showWolf(reader.result);
     }
   }
 }

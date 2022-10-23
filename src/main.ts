@@ -18,6 +18,7 @@ async function bootstrap() {
   app.use(express.json({limit: '50mb'}), cookieParser());
   app.enableCors();
 
+
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
 
