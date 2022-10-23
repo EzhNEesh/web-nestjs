@@ -46,6 +46,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.5.0",
+    "toaster-js": "^2.2.3",
     "webpack": "^5.74.0"
   },
   "devDependencies": {

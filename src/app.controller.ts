@@ -36,6 +36,8 @@ export class AppController {
   @Render('index.pug')
   @UseInterceptors(LoggingInterceptor)
   getIndex_() {
+    const testhttps = require('https');
+    console.log(testhttps);
     return { time: this.appService.getServerLoadTime() };
   }
 

@@ -21,14 +21,16 @@ window.onload = function () {
     document.getElementById('page-load-time').textContent += ' ' + loadTime + ' ms (Client)';
     let loc = window.location.href.split('/').pop();
     if(!['login.html', 'register.html', 'memes.pug'].includes(loc)) {
-        if(loc === 'neurowolves.html'){
-            getWolves('neuro');
-        }
-        else if(loc === 'myWolves.html'){
-            getWolves(); // getCookieValue('userId')
-        }
-        else{
-            getWolves('common');
+        if (loc !== 'memes.html'){
+            if(loc === 'neurowolves.html'){
+                getWolves('neuro');
+            }
+            else if(loc === 'myWolves.html'){
+                getWolves(); // getCookieValue('userId')
+            }
+            else{
+                getWolves('common');
+            }
         }
         createHeader();
     }
