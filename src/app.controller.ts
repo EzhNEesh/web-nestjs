@@ -36,8 +36,6 @@ export class AppController {
   @Render('index.pug')
   @UseInterceptors(LoggingInterceptor)
   getIndex_() {
-    const testhttps = require('https');
-    console.log(testhttps);
     return { time: this.appService.getServerLoadTime() };
   }
 
@@ -45,7 +43,6 @@ export class AppController {
   @Render('neurowolves.pug')
   @UseInterceptors(LoggingInterceptor)
   getNeuro() {
-
     return { time: this.appService.getServerLoadTime() };
   }
 

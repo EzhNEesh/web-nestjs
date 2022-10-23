@@ -16,10 +16,14 @@ export class PostsService {
 
   findAll(params: {
     where: Prisma.PostWhereInput,
+    take: number,
+    skip: number
   }) {
-    const { where } = params;
+    const { where, take, skip } = params;
     return this.prismaService.post.findMany({
       where,
+      skip: skip,
+      take: take,
     });
   }
 

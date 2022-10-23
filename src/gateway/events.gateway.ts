@@ -7,8 +7,6 @@ import {
   OnGatewayDisconnect,
 } from '@nestjs/websockets';
 import { Socket, Server } from 'socket.io';
-//import { PostsService } from "../posts/posts.service";
-//import { AppService } from "../app.service";
 
 
 @WebSocketGateway({
@@ -18,14 +16,13 @@ import { Socket, Server } from 'socket.io';
 })
 export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {
-  constructor(/*private postsService: PostsService*/) {}
+  constructor() {}
 
   @WebSocketServer() server: Server;
 
-  @SubscribeMessage('post_created')
+  @SubscribeMessage('some_message')
   async handleSendMessage(socket: Socket): Promise<void> {
-    //await this.postsService.create('meow');
-    this.server.emit('postCreated', 'New post created');
+    this.server.emit('something', 'message');
   }
 
   async broadcast(new_post: any){

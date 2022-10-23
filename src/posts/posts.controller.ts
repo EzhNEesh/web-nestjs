@@ -73,13 +73,17 @@ export class PostsController {
     description: 'Internal unknown error',
   })
   @UseFilters(new HttpExceptionFilter())
-  @ApiOperation({summary: 'Get all posts'})
-  @Get(':wType')
-  async findAll(@Param('wType') wType: string) {
+  @ApiOperation({summary: 'Get posts'})
+  @Get(':wType&:page')
+  async findAll(@Param('wType') wType: string,
+                @Param('page') page: number) {
+    console.log(page)
     return await this.postsService.findAll({
       where: {
         wolfType: wType,
-      }
+      },
+      take: -10,
+      skip: (page - 1) * 10,
     });
   }
 
@@ -100,15 +104,18 @@ export class PostsController {
     description: 'Internal unknown error',
   })
   @UseFilters(new HttpExceptionFilter())
-  @ApiOperation({summary: 'Get all posts'})
+  @ApiOperation({summary: 'Get users posts'})
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @Get('user/posts')
-  async findAllUsersWolves(@Req() req: Request) {
+  @Get('user/posts/:page')
+  async findAllUsersWolves(@Req() req: Request,
+                           @Param('page') page: number){
     return await this.postsService.findAll({
       where: {
         authorId: this.authService.getUserId(req.cookies.token),
-      }
+      },
+      take: -10,
+      skip: (page - 1) * 10
     });
   }
 

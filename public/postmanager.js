@@ -17,6 +17,10 @@ async function downloadImage() {
     alert('Изображение не выбрано или формат не поддерживается приложением')
     return;
   }
+  if(img.files[0].size > 5000000){
+    alert('Изображение не может превышать размер 5 Мб')
+    return;
+  }
   let reader = new FileReader()
   reader.readAsDataURL(img.files[0]);
   reader.onload = async () => {
@@ -31,19 +35,16 @@ async function downloadImage() {
     if (!res.ok){
       alert('Error status: ' + res.status);
     }
-    else{
-      //showWolf(reader.result);
-    }
   }
 }
 
 async function getWolves(...data) {
   let url;
-  if(data.length){
-    url = '/posts/' + data[0];
+  if(data.length === 2){
+    url = '/posts/' + data[0] + '&' + data[1];
   }
   else{
-    url = '/posts/user/posts';
+    url = '/posts/user/posts/' + data[0];
   }
   let res = await fetch(url);
   if (res.ok) {
@@ -64,5 +65,5 @@ function showWolf(wolfUrl) {
   let img = temp.content.querySelector('img');
   img.src = wolfUrl;
   let cloneCont = temp.content.cloneNode(true);
-  container.append(cloneCont);
+  container.prepend(cloneCont);
 }
