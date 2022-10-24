@@ -89,7 +89,7 @@ export class UsersController {
   })
   @UseFilters(new HttpExceptionFilter())
   @UseGuards(JwtAuthGuard)
-  @ApiOperation({summary: 'Get user by id'})
+  @ApiOperation({summary: 'Get user by request'})
   @Get('findUser')
   async findOneByReq(@Req() req: Request) {
     const id = this.authService.getUserId(req.cookies.token);
