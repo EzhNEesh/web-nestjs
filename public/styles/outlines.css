@@ -151,16 +151,71 @@ body {
     flex-wrap: wrap;
 }
 
-.content__img-container .content__img {
+.content__img-container .content__post{
+    display: flex;
+    flex-direction: column;
     max-width: 300px;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.content__post .content__img {
+    width: 100%;
     margin: 5px;
     box-shadow: 5px 5px 5px gray;
+}
+
+.content__post .content__post-delete-button{
+    background-color: #BBECF5;
+    box-shadow: 4px 4px 4px gray;
+    height: 2rem;
+    width: 100%;
+}
+
+.content__post .content__post-delete-button:hover{
+    background-color: #A8D9E2;
+}
+
+.content .content__button-container{
+    height: 2rem;
+    width: 100%;
+    bottom: 0;
+    position: relative;
+}
+
+.content .content__button-left{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 30px;
+    background-color: #BBECF5;
+    box-shadow: 4px 4px 4px gray;
+    position: absolute;
+    left: 0.5rem;
+}
+
+.content .content__button-left:hover{
+    background-color: #A8D9E2;
+}
+
+.content .content__button-right{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 30px;
+    background-color: #BBECF5;
+    box-shadow: 4px 4px 4px gray;
+    position: absolute;
+    right: 0.5rem;
+}
+
+.content .content__button-right:hover{
+    background-color: #A8D9E2;
 }
 
 .contacts-block{
     margin: 0 0 110px 0;
     height: 100px;
     background-color: #ABDCF5;
+    box-shadow: 4px 4px 4px gray;
 }
 
 .contacts-block .contacts-block__contacts {

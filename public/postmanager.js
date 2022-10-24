@@ -40,30 +40,53 @@ async function downloadImage() {
 
 async function getWolves(...data) {
   let url;
+  let userPosts = false;
   if(data.length === 2){
     url = '/posts/' + data[0] + '&' + data[1];
   }
   else{
     url = '/posts/user/posts/' + data[0];
+    userPosts = true
   }
   let res = await fetch(url);
   if (res.ok) {
     let resJSON = await res.json();
+    if(resJSON.length < 10){
+      hideButton('content__button-right')
+    }
     resJSON.forEach(function(wolfItem){
-      showWolf(wolfItem['imageURL']);
+      showWolf(wolfItem, userPosts);
     })
   }
   else {
-    alert('Error status: ' + res.status)
+    alert('Error status: ' + res.status);
   }
-
 }
 
-function showWolf(wolfUrl) {
+function showWolf(wolfItem, userPosts=false) {
   let container = document.querySelector('#img-container');
   let temp = document.querySelector('#img-item');
-  let img = temp.content.querySelector('img');
-  img.src = wolfUrl;
+  let post = temp.content.querySelector('.content__post')
+  let img = post.querySelector('img');
+  let deleteButton = post.querySelector('button');
+  img.src = wolfItem['imageURL'];
+  if(userPosts) {
+    deleteButton.dataset.postId = wolfItem['id'];
+  }
+  else{
+    deleteButton.style.display = 'none';
+  }
   let cloneCont = temp.content.cloneNode(true);
   container.prepend(cloneCont);
+}
+
+async function deleteWolf(deleteInfo){
+  let res = await fetch('/posts/' + deleteInfo.dataset.postId, {method: 'DELETE'});
+  if (!res.ok){
+    alert('Error: ' + res.status);
+  }
+  else{
+    alert('Волк удален');
+  }
+  console.log(deleteInfo.dataset.postId);
 }

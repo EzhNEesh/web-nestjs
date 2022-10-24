@@ -1,6 +1,10 @@
 function addEventListenerLogout(){
   let menuItems = document.querySelectorAll('.menu__menu-item');
-  menuItems[4].addEventListener('click', logout)
+  menuItems.forEach(function(menuItem){
+    if(menuItem.querySelector('a').textContent === 'Выйти'){
+      menuItem.addEventListener('click', logout);
+    }
+  })
 }
 
 async function logout(){

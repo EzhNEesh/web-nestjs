@@ -1,4 +1,6 @@
 section#img-container.content__img-container
 template#img-item
-    img.content__img
+    section.content__post
+        img.content__img
+        button(onclick='deleteWolf(this)').content__post-delete-button Удалить пост
 script(src='postmanager.js' defer='')

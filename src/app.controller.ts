@@ -59,8 +59,8 @@ export class AppController {
   @Get('/myWolves.html')
   @Render('myWolves.pug')
   @UseInterceptors(LoggingInterceptor)
-  getMyWolves(@Request() req) {
-    return req;
+  getMyWolves() {
+    return { time: this.appService.getServerLoadTime() };
   }
 
   @Get('/login.html')

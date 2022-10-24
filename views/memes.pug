@@ -1,8 +1,9 @@
 doctype html
 head
-    link(rel='stylesheet' href='styles/outlines.css')
-    link(rel='stylesheet' href='styles/memes.css')
-include partials/header
+    append style
+        link(rel='stylesheet' href='styles/outlines.css')
+        link(rel='stylesheet' href='styles/memes.css')
+include partials/header.pug
 
 body
     include partials/welcome-wolf.pug
@@ -26,6 +27,6 @@ body
 include partials/contacts.pug
 include partials/footer.pug
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
-script(src='script.js' defer='')
 script(type='text/javascript' src='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
 script(src='memes.js' defer='')
+script(src='mySlicer.js' defer='')
